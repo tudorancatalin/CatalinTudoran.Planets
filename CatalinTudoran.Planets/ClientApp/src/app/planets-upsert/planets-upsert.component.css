@@ -1,0 +1,25 @@
+.dialog-card-element {
+  width: 100%;
+  margin: 0 0 10px 0;
+}
+
+.dialog-card-element-dual-listbox {
+  width: 95%;
+  margin: 0 0 10px 0;
+}
+
+.image-preview {
+  border-radius: 10px;
+}
+
+.dialog-form-row {
+  margin-top: 20px;
+}
+
+.dialog-form-error {
+  font-size: 75%;
+}
+
+.dialog-card {
+  margin: 2px 0;
+}

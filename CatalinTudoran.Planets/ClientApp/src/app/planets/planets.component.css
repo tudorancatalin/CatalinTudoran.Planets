@@ -1,0 +1,15 @@
+.addButton {
+  display: flex;
+}
+
+.planets-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.mat-card {
+  margin: 1px;
+  padding: 2px;
+  height: 92vh;
+}

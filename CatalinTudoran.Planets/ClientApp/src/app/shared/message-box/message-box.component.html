@@ -1,0 +1,12 @@
+<p mat-dialog-title>
+  <mat-icon *ngIf="isErrorDialog" color="red">error</mat-icon>
+  <span class="message-box-title-text">{{title}}</span>
+</p>
+
+<mat-dialog-content class="mat-dialog-content-custom">
+  <mat-card class="dialog-card">{{message}}</mat-card>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close>Ok</button>
+</mat-dialog-actions>

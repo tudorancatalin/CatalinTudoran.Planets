@@ -1,0 +1,14 @@
+.message-box-title-text {
+  vertical-align: text-bottom;
+  margin-left: 10px;
+}
+
+.mat-dialog-content-custom {
+  background-color: rgb(250, 250, 250);
+}
+
+.dialog-card {
+  display: flex;
+  flex-direction: column;
+  margin: 3px 0 3px 0;
+}

@@ -1,0 +1,51 @@
+<div class="profile-continer">
+  <mat-card class="card">
+    <form [formGroup]="dialogForm" class="profile-form">
+      <mat-card class="dialog-card">
+
+        <mat-form-field class="dialog-card-element">
+          <input matInput type="password" id="currentPassword" placeholder="Current password" formControlName="currentPassword">
+          <mat-error *ngIf="dialogForm.controls.currentPassword.hasError('required')">
+            Va rugam sa introduceti parola.
+          </mat-error>
+          <mat-error *ngIf="dialogForm.controls.currentPassword.hasError('minlength')">
+            Parola trebuie sa aiba minim 6 caractere.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="dialog-card-element">
+          <input matInput type="password" id="newPassword" placeholder="Password" formControlName="newPassword">
+          <mat-error *ngIf="dialogForm.controls.newPassword.hasError('required')">
+            Va rugam sa introduceti parola.
+          </mat-error>
+          <mat-error *ngIf="dialogForm.controls.newPassword.hasError('minlength')">
+            Parola trebuie sa aiba minim 6 caractere.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="dialog-card-element">
+          <input matInput type="password"
+                 id="newPasswordConfirmation"
+                 placeholder="Confirm password"
+                 formControlName="newPasswordConfirmation"
+                 [errorStateMatcher]="pwdConfirmErrStateMatcher">
+          <mat-error *ngIf="dialogForm.controls.newPasswordConfirmation.hasError('required')">
+            Va rugam sa introduceti confirmarea parolei.
+          </mat-error>
+          <mat-error *ngIf="dialogForm.controls.newPasswordConfirmation.hasError('minlength')">
+            Parola trebuie sa aiba minim 6 caractere.
+          </mat-error>
+          <mat-error>
+            Cele 2 parole nu sunt identice.
+          </mat-error>
+        </mat-form-field>
+
+        <div *ngIf="errors" class="dialog-form-row dialog-form-error mat-error ng-star-inserted">
+          <strong>Au aparut erori: </strong> {{errors}}
+        </div>
+
+        <button mat-raised-button class='reset-button' color="primary" [disabled]="formInvalid()" (click)="changePassword()">Reset</button>
+      </mat-card>
+    </form>
+  </mat-card>
+</div>

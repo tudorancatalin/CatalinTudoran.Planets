@@ -1,0 +1,62 @@
+<p mat-dialog-title>{{upsertMode === 1 ? 'Create planet' : 'Edit planet'}}</p>
+<mat-dialog-content class="mat-dialog-content-custom">
+
+  <form [formGroup]="dialogForm">
+    <mat-card class="dialog-card">
+      <mat-form-field class="dialog-card-element">
+        <input matInput placeholder="Name" formControlName="name">
+        <mat-error *ngIf="dialogForm.controls.name.hasError('required')">
+          Please enter the name.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="dialog-card-element">
+        <input matInput placeholder="Description" formControlName="description">
+        <mat-error *ngIf="dialogForm.controls.name.hasError('required')">
+          Please enter the description.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="dialog-card-element">
+        <mat-select placeholder="Captain" formControlName="captainId">
+          <mat-option [value]="0">None</mat-option>
+          <mat-option *ngFor="let captain of captains" [value]="captain.id">
+            {{ captain.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="dialog-card-element-dual-listbox">
+        <app-dual-listbox [disabled]="isRobotsListBoxDisabled || !authService.isCaptain()" [source]="sourceRobots" [(destination)]="confirmedRobots"></app-dual-listbox>
+      </div>
+
+      <mat-form-field class="dialog-card-element">
+        <mat-select placeholder="Status" formControlName="statusId">
+          <mat-option *ngFor="let status of statuses" [value]="status.id">
+            {{ status.type }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="dialogForm.controls.statusId.hasError('required')">
+          Please select the status of the expedition.
+        </mat-error>
+      </mat-form-field>
+
+      <div class="dialog-card-element">
+        <input class="dialog-card-element" #file type="file" accept='image/*' (change)="showImage(file.files)" [disabled]="!authService.isCaptain()" />
+        <img class="image-preview" [src]="imgURL" width="200" *ngIf="imgURL">
+      </div>
+
+      <div *ngIf="errors" class="dialog-form-row dialog-form-error mat-error ng-star-inserted">
+        <strong>Au aparut erori: </strong> {{errors}}
+      </div>
+    </mat-card>
+  </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button color="primary" [disabled]="formInvalid()" (click)="save()">Salvare</button>
+  <button mat-raised-button [mat-dialog-close]="cancel">Cancel</button>
+</mat-dialog-actions>
+
+

@@ -1,0 +1,73 @@
+.planet-container {
+  display: inline-flex;
+  margin: 5px;
+  width: 97%;
+  height: 150px;
+  justify-content: space-between;
+}
+
+.image-name {
+  width: 30vw;
+  margin-right: 10px;
+}
+
+img {
+  margin: 0 !important;
+  border-radius: 12px !important;
+  width: 30vw;
+  max-height: 100px;
+}
+
+.name {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.content {
+  margin-right: 10px;
+}
+
+.robots {
+  display: inline-flex;
+  font-size: 12px;
+}
+
+.status {
+  margin-left: auto;
+}
+
+.status-text {
+  font-size: 14px;
+  width: 53px;
+  text-align: right;
+  margin: 113% 0;
+  font-weight: bold;
+}
+
+.captain {
+  font-size: 10px;
+  display: flex;
+}
+
+.mat-card {
+  padding: 12px;
+  line-height: 1;
+  box-shadow: 0px 3px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 7px 0px rgba(0, 0, 0, 0.12)
+}
+
+.description {
+  text-overflow: ellipsis;
+  max-width: 180px;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  height: 65px;
+  -webkit-line-clamp: 4;
+}
+
+.robotsString {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 135px;
+}

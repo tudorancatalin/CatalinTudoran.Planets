@@ -1,0 +1,13 @@
+<div class="planets-container">
+  <mat-card>
+    <div class="addButton" *ngIf="authService.isCaptain()">
+      <button mat-button mat-icon-button type="button" aria-label="Toggle sidenav" (click)="create()">
+        <mat-icon aria-label="Add">add_box</mat-icon>
+      </button>
+    </div>
+
+    <div class="planet" *ngFor="let planet of planets">
+      <app-planet (updatePlanet)="update($event)" [planet]="planet"></app-planet>
+    </div>
+  </mat-card>
+</div>

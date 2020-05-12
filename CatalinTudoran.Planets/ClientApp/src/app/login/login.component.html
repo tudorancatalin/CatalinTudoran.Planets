@@ -1,0 +1,36 @@
+<div class="login-card-container">
+  <mat-card class="card">
+    <div class="card-container">
+      <mat-card class="login-card">
+        <h2>Login</h2>
+
+        <form [formGroup]="loginForm" novalidate (ngSubmit)="login()">
+          <div class="login-form-container">
+            <mat-form-field class="login-form-row">
+              <input matInput id="account" placeholder="Account" formControlName="account">
+              <mat-error *ngIf="loginForm.controls.account.hasError('required')">
+                Va rugam sa introducei account-ul.
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="login-form-row">
+              <input matInput id="password" type="password" placeholder="Password" formControlName="password">
+              <mat-error *ngIf="loginForm.controls.password.hasError('required')">
+                Va rugam sa introduceti parola.
+              </mat-error>
+            </mat-form-field>
+
+            <div class="login-button-row login-form-row">
+              <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">Login</button>
+            </div>
+
+            <div *ngIf="errors" class="login-form-row login-form-error mat-error ng-star-inserted">
+              <strong>Au aparut erori in timpul login-ului: </strong> {{errors}}
+            </div>
+
+          </div>
+        </form>
+      </mat-card>
+    </div>
+  </mat-card>
+</div>

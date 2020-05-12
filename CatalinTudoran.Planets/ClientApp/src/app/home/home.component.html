@@ -1,0 +1,15 @@
+<mat-card>
+  <div *ngIf="isLoggedIn">
+    <div *ngIf="isCaptain">
+      <h1>Hello, Captain!</h1>
+    </div>
+    <div *ngIf="!isCaptain">
+      <h1>Hello, Robot!</h1>
+    </div>
+  </div>
+  <div *ngIf="!isLoggedIn">
+    <h1>Hello!</h1>
+    <h3>Do you wanna see the planets? Click <a routerLink="/planets">here</a>.</h3>
+    <h4>If you have an account, please <a routerLink="/auth/login">login</a>.</h4>
+  </div>
+</mat-card>

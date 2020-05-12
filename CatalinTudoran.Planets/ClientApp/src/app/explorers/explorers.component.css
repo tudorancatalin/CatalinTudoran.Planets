@@ -1,0 +1,74 @@
+.table-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  width: 80%;
+}
+
+td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 62px;
+}
+
+th {
+  width: 59%;
+}
+
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+
+app-users-add-user {
+  width: 80%;
+}
+
+.addButton {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+button {
+  background-color: inherit;
+  border: 0;
+}
+
+::ng-deep .mat-tab-label {
+  padding: 0px !important;
+  justify-content: left !important;
+}
+
+::ng-deep .mat-tab-header {
+  width: 80% !important;
+  margin: 0 auto !important;
+  flex-flow: column !important;
+}
+
+::ng-deep .mat-tab-label-content {
+  margin: 0 auto;
+}
+
+td.mat-cell:last-of-type {
+  padding-right: 20px !important;
+}
+
+td.mat-cell:first-of-type {
+  padding-left: 20px !important;
+}
+
+.explorers-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.mat-card {
+  margin: 1px;
+  padding: 2px;
+  height: 92vh;
+}

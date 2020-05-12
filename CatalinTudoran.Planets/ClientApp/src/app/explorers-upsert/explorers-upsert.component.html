@@ -1,0 +1,63 @@
+<p mat-dialog-title>{{upsertMode === 1 ? 'Create' : 'Edit'}}</p>
+<mat-dialog-content class="mat-dialog-content-custom">
+
+  <form [formGroup]="dialogForm">
+    <mat-card class="dialog-card">
+
+      <div class="dialog-card-row" *ngIf="!inPasswordResetMode()">
+        <mat-form-field class="dialog-card-element">
+          <input matInput id="userName" placeholder="UserName" formControlName="userName">
+          <mat-error *ngIf="dialogForm.controls.userName.hasError('required')">
+            Va rugam sa introducei id-ul.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="dialog-card-element">
+          <input matInput placeholder="Nume" formControlName="name">
+          <mat-error *ngIf="dialogForm.controls.name.hasError('required')">
+            Va rugam sa introducei numele.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div *ngIf="passwordRequired()" class="dialog-card-row">
+        <mat-form-field class="dialog-card-element">
+          <input matInput type="password" id="password" placeholder="Password" formControlName="password">
+          <mat-error *ngIf="dialogForm.controls.password.hasError('required')">
+            Va rugam sa introduceti parola.
+          </mat-error>
+          <mat-error *ngIf="dialogForm.controls.password.hasError('minlength')">
+            Parola trebuie sa aiba minim 6 caractere.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="dialog-card-element">
+          <input matInput type="password"
+                 id="passwordConfirmation"
+                 placeholder="Confirm password"
+                 formControlName="passwordConfirmation"
+                 [errorStateMatcher]="pwdConfirmErrStateMatcher">
+          <mat-error *ngIf="dialogForm.controls.passwordConfirmation.hasError('required')">
+            Va rugam sa introduceti confirmarea parolei.
+          </mat-error>
+          <mat-error *ngIf="dialogForm.controls.passwordConfirmation.hasError('minlength')">
+            Parola trebuie sa aiba minim 6 caractere.
+          </mat-error>
+          <mat-error *ngIf="passwordNotMatch()">
+            Cele 2 parole nu sunt identice.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div *ngIf="errors" class="dialog-form-row dialog-form-error mat-error ng-star-inserted">
+        <strong>Au aparut erori: </strong> {{errors}}
+      </div>
+    </mat-card>
+  </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button color="primary" [disabled]="formInvalid()" (click)="save()">Salvare</button>
+  <button mat-raised-button [mat-dialog-close]="cancel">Cancel</button>
+</mat-dialog-actions>

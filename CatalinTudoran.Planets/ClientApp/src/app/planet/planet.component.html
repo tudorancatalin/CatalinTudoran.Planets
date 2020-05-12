@@ -1,0 +1,30 @@
+<mat-card class="planet-container">
+  <div class="image-name">
+    <div class="image">
+      <img mat-card-image src="{{planet.imageUrl}}" />
+    </div>
+
+    <div>
+      <p class="name">{{planet.name}}</p>
+    </div>
+  </div>
+
+  <div class="content">
+    <div>
+      <p class="description">"{{planet.description}}"</p>
+    </div>
+
+    <div class="captain" *ngIf="planet.explorersTeam.captain">
+      <b>by captain:</b> <p class="captain-name">{{planet.explorersTeam.captain.name}} </p>
+    </div>
+
+    <div class="robots" *ngIf="planet.explorersTeam.robots.length != 0">
+      <b>Robots:</b>
+      <p class="robotsString">{{robotsString}}</p>
+    </div>
+  </div>
+
+  <div class="status">
+    <p class="status-text" [style.color]="statusColor" >{{planet.status.type}}</p>
+  </div>
+</mat-card>
